@@ -1,10 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import { notEkleAPI } from '../store/actions';
 
 const Gratitude = 'https://i.ibb.co/QN0cLh0/grForm.png';
 
 export default function PostForm() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -15,8 +18,8 @@ export default function PostForm() {
 
   function onSubmit(data) {
     if (!isValid) return;
-    // burada ilgili actionı dispatch et
-    // tüm notlar sayfasına yönlendirin
+    dispatch(notEkleAPI(data));
+    history.push('/notlar');
   }
 
   const inputCx = 'border border-zinc-300 h-9 rounded-none text-sm px-2 w-full';

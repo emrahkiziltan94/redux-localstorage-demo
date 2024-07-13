@@ -2,12 +2,15 @@ import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import PostForm from './components/PostForm';
 import PostList from './components/PostList';
+import { ToastContainer } from 'react-toastify';
 
 const Img = 'https://i.ibb.co/Q63Mjq1/gratitude.jpg';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
   return (
     <div>
+      <ToastContainer />
       <div className="bg-white shadow mb-8">
         <nav className="flex gap-2 justify-center max-w-xl mx-auto text-zinc-500">
           <NavLink
@@ -45,10 +48,10 @@ export default function App() {
                 </h1>
                 <p className="my-2">
                   Şükran günlüğü, kişinin hayatındaki olumlu şeylere
-                  odaklanması, minnettarlık ve şükran duygusunu hissetmesi
-                  için sık sık teşekkür ettiği şeyleri yazdığı bir tür
-                  günlüktür. Zihinsel iyi oluş için basit fakat oldukça etkili
-                  bir yöntemdir ve kişinin hayata pozitif bir bakış açısı
+                  odaklanması, minnettarlık ve şükran duygusunu hissetmesi için
+                  sık sık teşekkür ettiği şeyleri yazdığı bir tür günlüktür.
+                  Zihinsel iyi oluş için basit fakat oldukça etkili bir
+                  yöntemdir ve kişinin hayata pozitif bir bakış açısı
                   geliştirmesine yardımcı olabilir.{' '}
                 </p>
               </div>

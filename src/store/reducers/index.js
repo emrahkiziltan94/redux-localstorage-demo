@@ -24,3 +24,35 @@ function baslangicNotlariniGetir(key) {
     return baslangicDegerleri;
   }
 }
+
+function reducer(
+  state = baslangicNotlariniGetir(s10chLocalStorageKey),
+  action
+) {
+  switch (action.type) {
+    case NOTLARI_AL:
+      localStorageStateYaz(s10chLocalStorageKey, action.payload);
+      return {
+        notlar: action.payload,
+      };
+    case NOT_EKLE:
+      const yeniNotlar = {
+        ...state,
+        notlar: [action.payload, ...state.notlar],
+      };
+      localStorageStateYaz(s10chLocalStorageKey, yeniNotlar);
+      return yeniNotlar;
+
+    case NOT_SIL:
+      const kalanNotlar = {
+        ...state,
+        notlar: state.notlar.filter((not) => not.id !== action.payload),
+      };
+      localStorageStateYaz(s10chLocalStorageKey, kalanNotlar);
+      return kalanNotlar;
+    default:
+      return state;
+  }
+}
+
+export default reducer;
